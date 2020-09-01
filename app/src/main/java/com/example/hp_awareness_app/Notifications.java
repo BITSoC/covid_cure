@@ -18,37 +18,35 @@ import java.util.List;
 
 public class Notifications extends AppCompatActivity {
 
+  DatabaseReference databaseUsers;
+  ListView listView;
 
-    DatabaseReference databaseUsers;
-    ListView listView;
+  List<User> userList;
 
-    List<User> userList;
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_notification);
+    listView = (ListView) findViewById(R.id.users_List);
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification);
-        listView = (ListView) findViewById(R.id.users_List);
+    userList = new ArrayList<>();
+    databaseUsers = FirebaseDatabase.getInstance().getReference().child("Admin");
 
-        userList = new ArrayList<>();
-        databaseUsers = FirebaseDatabase.getInstance().getReference().child("Admin");
-
-        databaseUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userList.clear();
-                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    User user = userSnapshot.getValue(User.class);
-                    userList.add(user);
-                }
-                UserList adapter = new UserList(Notifications.this, userList);
-                listView.setAdapter(adapter);
+    databaseUsers.addValueEventListener(
+        new ValueEventListener() {
+          @Override
+          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            userList.clear();
+            for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+              User user = userSnapshot.getValue(User.class);
+              userList.add(user);
             }
+            UserList adapter = new UserList(Notifications.this, userList);
+            listView.setAdapter(adapter);
+          }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+          @Override
+          public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
-    }
+  }
 }

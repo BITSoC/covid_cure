@@ -5,27 +5,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class HimachalPradesh {
 
-	@SerializedName("districtData")
-	@Expose
-	private DistrictData districtData;
-	@SerializedName("statecode")
-	@Expose
-	private String statecode;
+  @SerializedName("districtData")
+  @Expose
+  private DistrictData districtData;
 
-	public DistrictData getDistrictData() {
-		return districtData;
-	}
+  @SerializedName("statecode")
+  @Expose
+  private String statecode;
 
-	public void setDistrictData(DistrictData districtData) {
-		this.districtData = districtData;
-	}
+  public DistrictData getDistrictData() {
+    return districtData;
+  }
 
-	public String getStatecode() {
-		return statecode;
-	}
+  public void setDistrictData(DistrictData districtData) {
+    this.districtData = districtData;
+  }
 
-	public void setStatecode(String statecode) {
-		this.statecode = statecode;
-	}
+  public String getStatecode() {
+    return statecode;
+  }
 
+  public void setStatecode(String statecode) {
+    this.statecode = statecode;
+  }
 }

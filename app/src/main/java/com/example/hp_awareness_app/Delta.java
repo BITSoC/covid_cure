@@ -5,38 +5,39 @@ import com.google.gson.annotations.SerializedName;
 
 public class Delta {
 
-	@SerializedName("confirmed")
-	@Expose
-	private Integer confirmed;
-	@SerializedName("deceased")
-	@Expose
-	private Integer deceased;
-	@SerializedName("recovered")
-	@Expose
-	private Integer recovered;
+  @SerializedName("confirmed")
+  @Expose
+  private Integer confirmed;
 
-	public Integer getConfirmed() {
-		return confirmed;
-	}
+  @SerializedName("deceased")
+  @Expose
+  private Integer deceased;
 
-	public void setConfirmed(Integer confirmed) {
-		this.confirmed = confirmed;
-	}
+  @SerializedName("recovered")
+  @Expose
+  private Integer recovered;
 
-	public Integer getDeceased() {
-		return deceased;
-	}
+  public Integer getConfirmed() {
+    return confirmed;
+  }
 
-	public void setDeceased(Integer deceased) {
-		this.deceased = deceased;
-	}
+  public void setConfirmed(Integer confirmed) {
+    this.confirmed = confirmed;
+  }
 
-	public Integer getRecovered() {
-		return recovered;
-	}
+  public Integer getDeceased() {
+    return deceased;
+  }
 
-	public void setRecovered(Integer recovered) {
-		this.recovered = recovered;
-	}
+  public void setDeceased(Integer deceased) {
+    this.deceased = deceased;
+  }
 
+  public Integer getRecovered() {
+    return recovered;
+  }
+
+  public void setRecovered(Integer recovered) {
+    this.recovered = recovered;
+  }
 }
